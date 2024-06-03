@@ -1,0 +1,77 @@
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  /* Primary color */
+  padding: 0 16px;
+  height: 64px;
+  /* Same height as mat-toolbar */
+  color: rgb(0, 0, 0);
+  /* Text color */
+}
+
+.spacer {
+  flex: 1;
+}
+
+.nav-button {
+  margin-left: 16px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.nav-button:hover {
+  text-decoration: underline;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  /* height: 30px; */
+}
+
+button:hover {
+  background-color: #505050;
+}
+
+
+@media (max-width: 600px) {
+  h1{
+    font-size: 16px;
+  }
+
+  a {
+    font-size: 16px;
+  }
+
+  .nav-bar {
+    height: auto; /* Remove fixed height */
+  }
+
+  .nav-button {
+    margin-left: 0; /* Remove margin */
+    margin-top: 10px; /* Add margin for spacing */
+  }
+}
