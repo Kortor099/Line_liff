@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 
 
 export interface Character {
-  
+
   name: string;
   status: string;
   species: string;
@@ -21,7 +21,7 @@ export interface Character {
   image: string;
   episode: string[];
   url: string;
-  
+
 }
 
 @Component({
@@ -47,21 +47,14 @@ export class CharacterComponent implements OnInit {
       this.convertData(data.results);
       console.log("Converted data: ", this.characters);
     });
-
-    // this.service.getCharacters().subscribe(data => {
-    //   console.log("API data: ", data);
-    //   this.characters.push(data.results);
-    //   this.convertData(this.characters);
-    //   // console.log("Converted data: ", this.characters);
-    // });
   }
 
   convertData(data: any[]): void {
     let _data: Character[] = [];
     for (let i = 0; i < data.length; i++) {
       _data.push({
-        
-        
+
+
         name: data[i].name || "",
         status: data[i].status || "",
         species: data[i].species || "",
@@ -78,12 +71,10 @@ export class CharacterComponent implements OnInit {
         image: data[i].image || "",
         episode: data[i].episode || [],
         url: data[i].url || "",
-        
+
       });
-      // console.log(_data);
     }
     this.characters = _data;
-    
   }
 
 
@@ -93,7 +84,6 @@ export class CharacterComponent implements OnInit {
     });
 
     if (input.invalid) {
-      // alert('Please fill in all fields');
       this.isSearch = true;
       return;
     }
@@ -101,13 +91,12 @@ export class CharacterComponent implements OnInit {
 
   chack(input: any) {
     if (input.invalid) {
-      // alert('Please fill in all fields');
       this.isSearch = true;
       return;
     }
   }
-  
- 
+
+
 }
 
 // name: data[i].name || "",

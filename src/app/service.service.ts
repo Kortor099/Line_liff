@@ -35,7 +35,6 @@ export class ServiceService {
       if (!liff.isLoggedIn()) {
         console.log('1234')
         liff.login()
-
       }
       else {
         console.log('1234')
@@ -46,7 +45,7 @@ export class ServiceService {
 
   linelogout(): void {
     if (liff.isLoggedIn()) {
-      liff.logout();
+      // liff.logout();
       liff.closeWindow();
     }
   }
