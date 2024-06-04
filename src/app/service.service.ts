@@ -40,7 +40,7 @@ export class ServiceService {
   }
 
   linelogout(): void {
-    if (!liff.isLoggedIn()) {
+    if (liff.isLoggedIn()) {
       liff.logout();
       liff.closeWindow();
     }
