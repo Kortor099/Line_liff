@@ -28,16 +28,19 @@ export class ServiceService {
   }
 
   Lifflogin() {
-    liff.init({ liffId: '2005367776-kKr8zaDn' }).then(() => {
-      // this.os = liff.getOS();
-      if (liff.isLoggedIn()) {
-        this.getUserProfile(); 
-      }
-      else {
-        liff.login(); 
-      }
-    }).catch(console.error);
+    liff.init({ liffId: '2005367776-kKr8zaDn' })
+      .then(() => {
+        if (liff.isLoggedIn()) {
+          this.getUserProfile();
+        } else {
+          liff.login();
+        }
+      })
+      .catch((err: any) => {
+        console.error('LIFF Initialization failed', err);
+      });
   }
+
 
   linelogout(): void {
     if (liff.isLoggedIn()) {
