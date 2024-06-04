@@ -37,7 +37,7 @@ export class ServiceService {
         liff.login()
       }
       else {
-        console.log('1234')
+        console.log('1234567')
         this.getUserProfile();
       }
     }).catch(console.error);
