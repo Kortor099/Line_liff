@@ -29,7 +29,6 @@ export class ServiceService {
   }
 
   Lifflogin() {
-    // this.isLoggedIn = true;
     liff.init({ liffId: '2005367776-kKr8zaDn' }).then(() => {
       // this.os = liff.getOS();
       if (liff.isLoggedIn()) {
