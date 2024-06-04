@@ -33,7 +33,7 @@ export class ServiceService {
     liff.init({ liffId: '2005367776-kKr8zaDn' }).then(() => {
       // this.os = liff.getOS();
       if (!liff.isLoggedIn()) {
-        console.log('1234')
+        console.log('12345')
         liff.login()
       }
       else {
