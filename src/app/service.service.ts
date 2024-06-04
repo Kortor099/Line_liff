@@ -10,6 +10,7 @@ import liff from '@line/liff';
 export class ServiceService {
   private apiUrl = 'https://rickandmortyapi.com/api';
   profile: any;
+  isLoggedIn: boolean = true;
 
   constructor(private http: HttpClient) { }
 
@@ -28,6 +29,7 @@ export class ServiceService {
   }
 
   Lifflogin() {
+    this.isLoggedIn = false;
     liff.init({ liffId: '2005367776-kKr8zaDn' }).then(() => {
       // this.os = liff.getOS();
       if (liff.isLoggedIn()) {
