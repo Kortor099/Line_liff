@@ -13,7 +13,7 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-  
+
   getCharacters(): Observable<any> {
     return this.http.get(`${this.apiUrl}/character`);
   }
@@ -35,7 +35,7 @@ export class ServiceService {
       if (!liff.isLoggedIn()) {
         console.log('1234')
         liff.login()
-        
+
       }
       else {
         console.log('1234')
@@ -45,22 +45,22 @@ export class ServiceService {
   }
 
   linelogout(): void {
-    if(liff.isLoggedIn()){
-    liff.logout();
-    liff.closeWindow();
+    if (liff.isLoggedIn()) {
+      liff.logout();
+      liff.closeWindow();
     }
   }
 
   getUserProfile() {
     return liff.getProfile()
-    .then(profile => {
-      this.profile = profile;
-      return this.profile;
-    })
-    .catch((err: any) => {
-      console.error('Error getting profile', err);
-      throw err;
-    });
+      .then(profile => {
+        this.profile = profile;
+        return this.profile;
+      })
+      .catch((err: any) => {
+        console.error('Error getting profile', err);
+        throw err;
+      });
   }
 
   searchCharacters(name: string): Observable<any> {
