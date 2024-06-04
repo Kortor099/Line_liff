@@ -37,7 +37,6 @@ export class CharacterComponent implements OnInit {
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
-    // this.service.lineliff();
     this.getCharacters();
   }
 
@@ -53,8 +52,6 @@ export class CharacterComponent implements OnInit {
     let _data: Character[] = [];
     for (let i = 0; i < data.length; i++) {
       _data.push({
-
-
         name: data[i].name || "",
         status: data[i].status || "",
         species: data[i].species || "",

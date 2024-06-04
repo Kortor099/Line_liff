@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
   
   constructor(private service: ServiceService) { }
   ngOnInit(): void {
-    this.service.initializeLiff();
+    this.service.Lifflogin();
   }
 
 }

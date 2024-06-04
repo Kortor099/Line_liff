@@ -2,13 +2,11 @@
 
 <div class="container">
     <div *ngFor="let episode of episodes" class="card">
-        <!-- <div class="card"> -->
             <div class="card-title" (click)="showCharacterDetails(episode)">{{ episode.name }}</div>
             <div class="card-content">
                 <p>Air Date: {{ episode.air_date }}</p>
                 <p>Episode: {{ episode.episode }}</p>
             </div>
-        
     </div>
 </div>
 

@@ -13,38 +13,34 @@ export class ServiceService {
 
   constructor(private http: HttpClient) { }
 
-
   getCharacters(): Observable<any> {
     return this.http.get(`${this.apiUrl}/character`);
   }
-
-
   getEpisodes(): Observable<any> {
     return this.http.get(`${this.apiUrl}/episode`);
-  } getCharacter(id: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/character/${id}`);
-  }
-
+  } 
   getLocations(): Observable<any> {
     return this.http.get(`${this.apiUrl}/location`);
   }
 
-  initializeLiff() {
+  getCharacter(id: string): Observable<any> {
+    return this.http.get(`${this.apiUrl}/character/${id}`);
+  }
+
+  Lifflogin() {
     liff.init({ liffId: '2005367776-kKr8zaDn' }).then(() => {
       // this.os = liff.getOS();
-      if (!liff.isLoggedIn()) {
-        // console.log('12345')
+      if (liff.isLoggedIn()) {
         this.getUserProfile(); 
       }
       else {
-        // console.log('1234567');
         liff.login(); 
       }
     }).catch(console.error);
   }
 
   linelogout(): void {
-    if (!liff.isLoggedIn()) {
+    if (liff.isLoggedIn()) {
       liff.logout();
       liff.closeWindow();
     }

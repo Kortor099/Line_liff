@@ -18,12 +18,9 @@ a:hover {
   display: flex;
   align-items: center;
   background-color: #ffffff;
-  /* Primary color */
   padding: 0 16px;
   height: 64px;
-  /* Same height as mat-toolbar */
   color: rgb(0, 0, 0);
-  /* Text color */
 }
 
 .spacer {
@@ -49,7 +46,6 @@ button {
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  /* height: 30px; */
 }
 
 button:hover {
@@ -67,11 +63,11 @@ button:hover {
   }
 
   .nav-bar {
-    height: auto; /* Remove fixed height */
+    height: auto; 
   }
 
   .nav-button {
-    margin-left: 0; /* Remove margin */
-    margin-top: 10px; /* Add margin for spacing */
+    margin-left: 0; 
+    margin-top: 10px;
   }
 }
