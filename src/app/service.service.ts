@@ -9,7 +9,6 @@ import liff from '@line/liff';
 })
 export class ServiceService {
   private apiUrl = 'https://rickandmortyapi.com/api';
-  os: ReturnType<typeof liff.getOS>;
   profile: any;
 
   constructor(private http: HttpClient) { }
@@ -46,9 +45,12 @@ export class ServiceService {
   }
 
   linelogout(): void {
-    liff.logout();
+    if(liff.isLoggedIn()){
+    //liff.logout();
     liff.closeWindow();
+    }
   }
+
 
   getUserProfile() {
     return liff.getProfile()
