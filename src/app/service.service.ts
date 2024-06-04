@@ -43,12 +43,12 @@ export class ServiceService {
     }).catch(console.error);
   }
 
-  linelogout(): void {
-    if (liff.isLoggedIn()) {
-      // liff.logout();
-      liff.closeWindow();
-    }
-  }
+  // linelogout(): void {
+  //   if (liff.isLoggedIn()) {
+  //     liff.logout();
+  //     liff.closeWindow();
+  //   }
+  // }
 
   getUserProfile() {
     return liff.getProfile()
