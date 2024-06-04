@@ -46,11 +46,11 @@ export class ServiceService {
 
   linelogout(): void {
     if(liff.isLoggedIn()){
-    //liff.logout();
+    liff.logout();
     liff.closeWindow();
     }
   }
-  
+
   getUserProfile() {
     return liff.getProfile()
     .then(profile => {
