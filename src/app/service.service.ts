@@ -34,11 +34,11 @@ export class ServiceService {
       // this.os = liff.getOS();
       if (!liff.isLoggedIn()) {
         console.log('12345')
-        liff.login()
+        this.getUserProfile(); 
       }
       else {
-        console.log('1234567')
-        this.getUserProfile();
+        console.log('1234567');
+        liff.login(); 
       }
     }).catch(console.error);
   }
