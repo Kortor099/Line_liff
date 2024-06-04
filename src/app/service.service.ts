@@ -18,7 +18,7 @@ export class ServiceService {
   }
   getEpisodes(): Observable<any> {
     return this.http.get(`${this.apiUrl}/episode`);
-  } 
+  }
   getLocations(): Observable<any> {
     return this.http.get(`${this.apiUrl}/location`);
   }
@@ -31,16 +31,16 @@ export class ServiceService {
     liff.init({ liffId: '2005367776-kKr8zaDn' }).then(() => {
       // this.os = liff.getOS();
       if (liff.isLoggedIn()) {
-        this.getUserProfile(); 
+        this.getUserProfile();
       }
       else {
-        liff.login(); 
+        liff.login();
       }
     }).catch(console.error);
   }
 
   linelogout(): void {
-    if (!liff.isLoggedIn()) {
+    if (liff.isLoggedIn()) {
       liff.logout();
       liff.closeWindow();
     }
