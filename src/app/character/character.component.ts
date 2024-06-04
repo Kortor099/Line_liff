@@ -41,7 +41,7 @@ export class CharacterComponent implements OnInit {
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
-    // this.service.lineliff();
+    this.service.lineliff();
     this.getCharacters();
   }
 
