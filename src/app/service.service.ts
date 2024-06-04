@@ -50,8 +50,7 @@ export class ServiceService {
     liff.closeWindow();
     }
   }
-
-
+  
   getUserProfile() {
     return liff.getProfile()
     .then(profile => {

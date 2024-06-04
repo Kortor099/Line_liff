@@ -3,13 +3,8 @@ import { ServiceService } from '../service.service';
 import { NgForm } from '@angular/forms';
 
 
-
 export interface Character {
-  // count: number;
-  // pages: number;
-  // next: string;
-
-  id: number;
+  
   name: string;
   status: string;
   species: string;
@@ -66,7 +61,7 @@ export class CharacterComponent implements OnInit {
     for (let i = 0; i < data.length; i++) {
       _data.push({
         
-        id: data[i].id || 0,
+        
         name: data[i].name || "",
         status: data[i].status || "",
         species: data[i].species || "",
