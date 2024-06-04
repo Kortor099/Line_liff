@@ -9,9 +9,9 @@ import { ServiceService } from '../service.service';
 export class NavBarComponent {
 
   constructor(private service: ServiceService) { }
-  // linelogout(){
-  //   this.service.linelogout();
-  // }
+  linelogout(){
+    this.service.linelogout();
+  }
   
 
 }

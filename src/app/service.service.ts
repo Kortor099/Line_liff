@@ -29,7 +29,7 @@ export class ServiceService {
     return this.http.get(`${this.apiUrl}/location`);
   }
 
-  lineliff(): void {
+  initializeLiff() {
     liff.init({ liffId: '2005367776-kKr8zaDn' }).then(() => {
       // this.os = liff.getOS();
       if (!liff.isLoggedIn()) {
@@ -43,12 +43,12 @@ export class ServiceService {
     }).catch(console.error);
   }
 
-  // linelogout(): void {
-  //   if (liff.isLoggedIn()) {
-  //     liff.logout();
-  //     liff.closeWindow();
-  //   }
-  // }
+  linelogout(): void {
+    if (liff.isLoggedIn()) {
+      liff.logout();
+      liff.closeWindow();
+    }
+  }
 
   getUserProfile() {
     return liff.getProfile()
