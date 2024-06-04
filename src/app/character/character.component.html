@@ -3,11 +3,18 @@
     <img src="\assets\logoname.png" alt="Rick and Morty Logo" class="logo-image">
 </div>
 
+<div class="input-search">
 <div class="input-container">
-    <input [(ngModel)]="searchName" placeholder="Enter character name" />
-    <button (click)="search()">Searc</button>
-</div>
+    <form #searchForm="ngForm">
+        <input name="searchName" [(ngModel)]="searchName" #searchNameCtrl="ngModel" required placeholder="Enter character name" />
+    <button (click)="search(searchForm)">search</button>
 
+    </form>
+</div>
+<div *ngIf="searchNameCtrl.invalid && isSearch " class="alert">
+    *Please fill in this field.
+</div>
+</div>
 <div class="container">
     <div *ngFor="let character of characters" class="card">
         <div class="image">

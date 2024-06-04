@@ -35,6 +35,9 @@ export class ServiceService {
       if (!liff.isLoggedIn()) {
         liff.login()
       }
+      else {
+        // this.getUserProfile();
+      }
     }).catch(console.error);
   }
 

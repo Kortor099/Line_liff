@@ -12,6 +12,11 @@
     height: auto;
 }
 
+.input-search {
+    position: relative;
+
+}
+
 .input-container {
     display: flex;
     justify-content: center;
@@ -87,14 +92,19 @@ button:hover {
     text-align: left;
     color: white;
 }
-/* 
-.card-content p strong {
-    font-weight: bold;
-} */
+
+.alert {
+    font-size: 12px;
+    margin-bottom: 20px;
+    color: red;
+    position: absolute;
+    left: 40%;
+    top: 40px;
+}
 
 
 /* Responsive */
-@media screen and (max-width: 600px) {
+@media (max-width: 600px) {
     .input-container {
         align-items: center;
     }
@@ -117,12 +127,21 @@ button:hover {
     .logo-image {
         width: 100%;
     }
+
     .image img {
         width: 50%;
         height: auto;
-        display: block; 
-        margin: 10px auto; 
+        display: block;
+        margin: 10px auto;
     }
+
+    .alert {
+        font-size: 12px;
+        position: absolute;
+        left: 90px;
+        top: 40px;
+    }
+
 }
 
 /* @media (min-width: 601px) and (max-width: 1024px) {

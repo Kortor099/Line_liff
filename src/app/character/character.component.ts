@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
+import { NgForm } from '@angular/forms';
 
 
 
@@ -25,7 +26,7 @@ export interface Character {
   image: string;
   episode: string[];
   url: string;
-  created: string;
+  
 }
 
 @Component({
@@ -36,12 +37,12 @@ export interface Character {
 export class CharacterComponent implements OnInit {
   characters: Character[] = [];
   searchName: string = '';
-
+  isSearch: boolean = false;
 
   constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
-    this.service.lineliff();
+    // this.service.lineliff();
     this.getCharacters();
   }
 
@@ -82,7 +83,7 @@ export class CharacterComponent implements OnInit {
         image: data[i].image || "",
         episode: data[i].episode || [],
         url: data[i].url || "",
-        created: data[i].created || ""
+        
       });
       // console.log(_data);
     }
@@ -91,11 +92,26 @@ export class CharacterComponent implements OnInit {
   }
 
 
-  search() {
+  search(input: NgForm) {
     this.service.searchCharacters(this.searchName).subscribe((data: any) => {
       this.characters = data.results;
     });
+
+    if (input.invalid) {
+      // alert('Please fill in all fields');
+      this.isSearch = true;
+      return;
+    }
   }
+
+  chack(input: any) {
+    if (input.invalid) {
+      // alert('Please fill in all fields');
+      this.isSearch = true;
+      return;
+    }
+  }
+  
  
 }
 
