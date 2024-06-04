@@ -10,6 +10,7 @@ import liff from '@line/liff';
 export class ServiceService {
   private apiUrl = 'https://rickandmortyapi.com/api';
   os: ReturnType<typeof liff.getOS>;
+  profile: any;
 
   constructor(private http: HttpClient) { }
 
@@ -33,10 +34,13 @@ export class ServiceService {
     liff.init({ liffId: '2005367776-kKr8zaDn' }).then(() => {
       // this.os = liff.getOS();
       if (!liff.isLoggedIn()) {
+        console.log('1234')
         liff.login()
+        
       }
       else {
-        // this.getUserProfile();
+        console.log('1234')
+        this.getUserProfile();
       }
     }).catch(console.error);
   }
@@ -44,6 +48,18 @@ export class ServiceService {
   linelogout(): void {
     liff.logout();
     liff.closeWindow();
+  }
+
+  getUserProfile() {
+    return liff.getProfile()
+    .then(profile => {
+      this.profile = profile;
+      return this.profile;
+    })
+    .catch((err: any) => {
+      console.error('Error getting profile', err);
+      throw err;
+    });
   }
 
   searchCharacters(name: string): Observable<any> {
