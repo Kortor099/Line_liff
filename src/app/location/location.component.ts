@@ -9,25 +9,12 @@ export interface Location {
   type: string;
   dimension: string;
   residents: string[];
-  url: string;
-  created: string;
 }
 
 export interface Character {
-  id: number;
   name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: any;
-  location: any;
   image: string;
-  episode: string[];
-  url: string;
-  created: string;
 }
-
 
 
 @Component({
@@ -63,8 +50,6 @@ export class LocationComponent {
         type: data[i].type || "",
         dimension: data[i].dimension || "",
         residents: data[i].residents || [],
-        url: data[i].url || "",
-        created: data[i].created || ""
       });
     }
     this.locations = _data;

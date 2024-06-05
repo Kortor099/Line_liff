@@ -1,24 +1,23 @@
 <app-nav-bar></app-nav-bar>
-<div class="container">
-    <div *ngFor="let location of locations" class="card">
+<div>
+    <div class="container">
+        <div *ngFor="let location of locations" class="card">
             <div class="card-title" (click)="showCharacterDetails(location)">{{ location.name }}</div>
             <div class="card-content">
-                <p>Type: {{ location.type }}</p>
+                <p>{{ location.type }}</p>
                 <p>Dimension: {{ location.dimension }}</p>
                 <p>Residents: {{ location.residents.length }}</p>
             </div>
+        </div>
     </div>
-</div>
-
-
-<div class="modal" [class.show]="isModalVisible">
-    <div class="modal-content">
-        <span class="close" (click)="closeModal()">&times;</span>
-        <h2>Character Details</h2>
-        <div *ngFor="let character of characterDetails">
-            <img [src]="character.image" alt="{{ character.name }}">
-            <p> {{ character.name }}</p>
-
+    <div class="modal" [class.show]="isModalVisible">
+        <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <h2>Character Details</h2>
+            <div *ngFor="let character of characterDetails">
+                <img [src]="character.image" alt="{{ character.name }}">
+                <p> {{ character.name }}</p>
+            </div>
         </div>
     </div>
 </div>

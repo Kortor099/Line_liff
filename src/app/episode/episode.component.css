@@ -7,7 +7,6 @@
   justify-content: center;
 }
 
-
 .card {
   margin: 15px;
   width: 450px; 
@@ -75,7 +74,6 @@
   width: 200px; 
   height: auto;
   border-radius: 20%;
-
   margin: 10px auto;
 }
 

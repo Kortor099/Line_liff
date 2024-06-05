@@ -10,7 +10,7 @@ import liff from '@line/liff';
 export class ServiceService {
   private apiUrl = 'https://rickandmortyapi.com/api';
   profile: any;
-
+  
   constructor(private http: HttpClient) { }
 
   getCharacters(): Observable<any> {
@@ -61,6 +61,4 @@ export class ServiceService {
   searchCharacters(name: string): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/character/?name=${name}`);
   }
-
-
 }

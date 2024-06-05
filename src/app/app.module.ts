@@ -11,10 +11,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HttpClientModule} from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +19,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CharacterComponent,
     LocationComponent,
     EpisodeComponent,
-    NavBarComponent
+    NavBarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

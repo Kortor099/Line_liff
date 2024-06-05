@@ -1,31 +1,32 @@
-<app-nav-bar></app-nav-bar>
-<div class="logo-image">
-    <img src="\assets\logoname.png" alt="Rick and Morty Logo" class="logo-image">
-</div>
-
-<div class="input-search">
-    <div class="input-container">
-        <form #searchForm="ngForm">
-            <input name="searchName" [(ngModel)]="searchName" #searchNameCtrl="ngModel" required
-                placeholder="Enter character name" />
-            <button (click)="search(searchForm)">search</button>
-        </form>
+<div>
+    <div class="logo-image">
+        <img src="\assets\logoname.png" alt="Rick and Morty Logo" class="logo-image">
     </div>
-</div>
-<div *ngIf="searchNameCtrl.invalid && isSearch " class="alert">
-    *Please fill in this field.
-</div>
 
-<div class="container">
-    <div *ngFor="let character of characters" class="card">
-        <div class="image">
-            <img [src]="character.image" alt="{{ character.name }}">
+    <div class="input-search">
+        <div class="input-container">
+            <form #searchForm="ngForm">
+                <input name="searchName" [(ngModel)]="searchName" #searchNameCtrl="ngModel" required
+                    placeholder="Enter character name" />
+                <button (click)="search(searchForm)">search</button>
+            </form>
         </div>
-        <div class="card-title">{{ character.name }}</div>
-        <div class="card-content">
-            <p><strong> Status :</strong> {{ character.status }}</p>
-            <p><strong> Species :</strong> {{ character.species }} - {{ character.gender }}</p>
-            <p><strong> Location :</strong> {{ character.location.name }}</p>
+        <div *ngIf="searchNameCtrl.invalid && isSearch " class="alert">
+            *Please enter character name.
+        </div>
+    </div>
+
+    <div class="container">
+        <div *ngFor="let character of characters" class="card">
+            <div class="image">
+                <img [src]="character.image" alt="{{ character.name }}">
+            </div>
+            <div class="card-title">{{ character.name }}</div>
+            <div class="card-content">
+                <p><strong> Status :</strong> {{ character.status }}</p>
+                <p><strong> Species :</strong> {{ character.species }} - {{ character.gender }}</p>
+                <p><strong> Location :</strong> {{ character.location.name }}</p>
+            </div>
         </div>
     </div>
 </div>

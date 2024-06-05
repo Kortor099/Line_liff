@@ -1,30 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceService } from '../service.service';
 
-
 export interface Episode {
   id: number;
   name: string;
   air_date: string;
   episode: string;
   characters: string[];
-  url: string;
-
 }
 
 export interface Character {
-  id: number;
   name: string;
-  status: string;
-  species: string;
-  type: string;
-  gender: string;
-  origin: any;
-  location: any;
   image: string;
-  episode: string[];
-  url: string;
-
 }
 
 @Component({
@@ -37,10 +24,9 @@ export class EpisodeComponent implements OnInit {
   characterDetails: Character[] = [];
   isModalVisible = false;
 
-
   constructor(private api: ServiceService) {}
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.getEpisodes();
   }
 
@@ -61,7 +47,6 @@ export class EpisodeComponent implements OnInit {
         air_date: data[i].air_date || "",
         episode: data[i].episode || "",
         characters: data[i].characters || [],
-        url: data[i].url || "",
       });
     }
     this.episodes = _data;

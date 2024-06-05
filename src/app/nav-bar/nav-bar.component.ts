@@ -12,6 +12,4 @@ export class NavBarComponent {
   linelogout(){
     this.service.linelogout();
   }
-  
-
 }

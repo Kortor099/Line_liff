@@ -1,27 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ServiceService } from '../service.service';
 import { NgForm } from '@angular/forms';
 
 
 export interface Character {
-
   name: string;
   status: string;
   species: string;
   type: string;
   gender: string;
-  origin: {
-    name: string;
-    url: string;
-  };
+  // origin: {
+  //   name: string;
+  //   url: string;
+  // };
   location: {
     name: string;
-    url: string;
+    // url: string;
   };
   image: string;
-  episode: string[];
-  url: string;
-
+  // episode: string[];
 }
 
 @Component({
@@ -29,10 +26,14 @@ export interface Character {
   templateUrl: './character.component.html',
   styleUrls: ['./character.component.css']
 })
+
 export class CharacterComponent implements OnInit {
   characters: Character[] = [];
   searchName: string = '';
   isSearch: boolean = false;
+
+  @Output() searchEvent = new EventEmitter<string>();
+  searchResult: string = '';
 
   constructor(private service: ServiceService) { }
 
@@ -57,27 +58,25 @@ export class CharacterComponent implements OnInit {
         species: data[i].species || "",
         type: data[i].type || "",
         gender: data[i].gender || "",
-        origin: {
-          name: data[i].origin?.name || "",
-          url: data[i].origin?.url || ""
-        },
+        // origin: {
+        //   name: data[i].origin?.name || "",
+        //   url: data[i].origin?.url || ""
+        // },
         location: {
           name: data[i].location?.name || "",
-          url: data[i].location?.url || ""
+          // url: data[i].location?.url || ""
         },
         image: data[i].image || "",
-        episode: data[i].episode || [],
-        url: data[i].url || "",
-
+        // episode: data[i].episode || [],
       });
     }
     this.characters = _data;
   }
 
-
   search(input: NgForm) {
     this.service.searchCharacters(this.searchName).subscribe((data: any) => {
       this.characters = data.results;
+      this.searchEvent.emit(this.searchName); 
     });
 
     if (input.invalid) {
@@ -85,22 +84,13 @@ export class CharacterComponent implements OnInit {
       return;
     }
   }
-
-  chack(input: any) {
-    if (input.invalid) {
-      this.isSearch = true;
-      return;
-    }
-  }
-
-
 }
 
-// name: data[i].name || "",
-//         status: data[i].status || "",
-//         species: data[i].species || "",
-//         type: data[i].type || "",
-//         gender: data[i].gender || "",
+// name: data[i]['name'] || "",
+//         status: data[i]['status'] || "",
+//         species: data[i]['species'] || "",
+//         type: data[i]['type'] || "",
+//         gender: data[i]['gender'] || "",
 //         origin: {
 //           name: data[i].origin?.name || "",
 //           url: data[i].origin?.url || ""
@@ -109,7 +99,7 @@ export class CharacterComponent implements OnInit {
 //           name: data[i].location?.name || "",
 //           url: data[i].location?.url || ""
 //         },
-//         image: data[i].image || "",
-//         episode: data[i].episode || [],
-//         url: data[i].url || "",
-//         created: data[i].created || ""
+//         image: data[i]['image'] || "",
+//         episode: data[i]['episode'] || [],
+//         url: data[i]['url'] || "",
+//         created: data[i]['created'] || ""
